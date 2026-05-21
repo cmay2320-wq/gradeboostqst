@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Buddy Questionnaire</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="bg-shape one"></div>
+    <div class="bg-shape two"></div>
+
+    <main class="card">
+        <h1>Help Build The Ultimate Study App 🚀</h1>
+        <p>
+            Answer a few quick questions so we can build a study app that actually helps students with school, college, and university life.
+        </p>
+
+        <form action="/submit" method="POST">
+
+            <input 
+                type="text" 
+                name="name" 
+                placeholder="Your name" 
+                required
+            >
+
+            <select name="education_level" required>
+                <option value="">Select your education level</option>
+
+                <option>Grade 8</option>
+                <option>Grade 9</option>
+                <option>Grade 10</option>
+                <option>Grade 11</option>
+                <option>Grade 12</option>
+
+                <option>NCV Level 2</option>
+                <option>NCV Level 3</option>
+                <option>NCV Level 4</option>
+
+                <option>NATED N1</option>
+                <option>NATED N2</option>
+                <option>NATED N3</option>
+                <option>NATED N4</option>
+                <option>NATED N5</option>
+                <option>NATED N6</option>
+
+                <option>Higher Certificate</option>
+                <option>Diploma</option>
+                <option>Advanced Diploma</option>
+                <option>Bachelor’s Degree - 1st Year</option>
+                <option>Bachelor’s Degree - 2nd Year</option>
+                <option>Bachelor’s Degree - 3rd Year</option>
+                <option>Bachelor’s Degree - 4th Year</option>
+                <option>Honours</option>
+                <option>Master’s</option>
+                <option>PhD</option>
+
+                <option>TVET College Student</option>
+                <option>Private College Student</option>
+                <option>Other</option>
+            </select>
+
+            <input 
+                type="text" 
+                name="institution" 
+                placeholder="School / college / university name"
+            >
+
+            <input 
+                type="text" 
+                name="hardest_subject" 
+                placeholder="What subject or module do you struggle with most?" 
+                required
+            >
+
+            <textarea 
+                name="biggest_problem" 
+                placeholder="What is your biggest problem when studying?" 
+                required
+            ></textarea>
+
+            <select name="wanted_feature" required>
+                <option value="">What feature would help you most?</option>
+                <option>Smart study timetable</option>
+                <option>Homework / assignment tracker</option>
+                <option>AI homework helper</option>
+                <option>Past papers</option>
+                <option>Flashcards</option>
+                <option>Focus timer</option>
+                <option>Notes organizer</option>
+                <option>Exam countdown</option>
+                <option>Group study rooms</option>
+                <option>Motivation reminders</option>
+                <option>Progress tracker</option>
+            </select>
+
+            <select name="study_time" required>
+                <option value="">When do you usually study?</option>
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option>Night</option>
+                <option>Late night</option>
+                <option>Weekends only</option>
+                <option>Only before tests or exams</option>
+                <option>I struggle to study consistently</option>
+            </select>
+
+            <select name="study_style" required>
+                <option value="">How do you study best?</option>
+                <option>Reading notes</option>
+                <option>Watching videos</option>
+                <option>Practice questions</option>
+                <option>Flashcards</option>
+                <option>Past papers</option>
+                <option>Explaining work to someone else</option>
+                <option>Group studying</option>
+            </select>
+
+            <select name="ai_help" required>
+                <option value="">Would AI explanations help you?</option>
+                <option>Yes, definitely</option>
+                <option>Maybe</option>
+                <option>No</option>
+            </select>
+
+            <select name="pay_interest" required>
+                <option value="">Would you pay for a study app if it really helped you?</option>
+                <option>Yes</option>
+                <option>Maybe, depends on price</option>
+                <option>No</option>
+            </select>
+
+            <select name="price_range">
+                <option value="">What price would feel fair per month?</option>
+                <option>Free only</option>
+                <option>R10 - R20</option>
+                <option>R30 - R50</option>
+                <option>R60 - R100</option>
+                <option>More than R100 if it is really useful</option>
+            </select>
+
+            <textarea 
+                name="current_tools" 
+                placeholder="What apps or websites do you currently use to study?"
+            ></textarea>
+
+            <textarea 
+                name="missing_feature" 
+                placeholder="What do you wish study apps had but usually don’t?"
+            ></textarea>
+
+            <textarea 
+                name="extra" 
+                placeholder="What would make a study app perfect for you?"
+            ></textarea>
+
+            <button type="submit">Submit My Answers</button>
+
+        </form>
+    </main>
+
+</body>
+</html>

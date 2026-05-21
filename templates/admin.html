@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Responses</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="admin-box">
+        <h1>Student Responses</h1>
+
+        <a href="/logout" class="logout-btn">Logout</a>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Education Level</th>
+                <th>Institution</th>
+                <th>Hardest Subject / Module</th>
+                <th>Biggest Study Problem</th>
+                <th>Most Wanted Feature</th>
+                <th>Study Time</th>
+                <th>Study Style</th>
+                <th>AI Help</th>
+                <th>Would Pay?</th>
+                <th>Price Range</th>
+                <th>Current Study Tools</th>
+                <th>Missing Feature</th>
+                <th>Perfect App Idea</th>
+            </tr>
+
+            {% for r in responses %}
+            <tr>
+                <td>{{ r[0] }}</td>
+                <td>{{ r[1] }}</td>
+                <td>{{ r[2] }}</td>
+                <td>{{ r[3] }}</td>
+                <td>{{ r[4] }}</td>
+                <td>{{ r[5] }}</td>
+                <td>{{ r[6] }}</td>
+                <td>{{ r[7] }}</td>
+                <td>{{ r[8] }}</td>
+                <td>{{ r[9] }}</td>
+                <td>{{ r[10] }}</td>
+                <td>{{ r[11] }}</td>
+                <td>{{ r[12] }}</td>
+                <td>{{ r[13] }}</td>
+                <td>{{ r[14] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+</html>
