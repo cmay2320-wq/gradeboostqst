@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, session
 import sqlite3
 import os
+import psycopg2
+from psycopg2.extras import RealDictCursor
 
 app = Flask(__name__)
 
@@ -15,19 +17,25 @@ ADMIN_PASSWORD = os.environ.get(
     "admin0760"
 )
 
-DATABASE = "responses.db"
+DATABASE_URL = os.environ.get("postgresql://gradeboostedb_user:sGkdYJUq0jAW8zvnABXy9dqCsPoP9UnE@dpg-d87dn34m0tmc739q5esg-a/gradeboostedb")
 
 # =========================
 # DATABASE SETUP
 # =========================
 
+def get_db_connection():
+    return psycopg2.connect(DATABASE_URL)
+
 def init_db():
-    conn = sqlite3.connect(DATABASE)
+
+    conn = get_db_connection()
+
     c = conn.cursor()
 
     c.execute("""
         CREATE TABLE IF NOT EXISTS responses (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+            id SERIAL PRIMARY KEY,
 
             name TEXT,
             education_level TEXT,
@@ -53,9 +61,9 @@ def init_db():
     """)
 
     conn.commit()
-    conn.close()
 
-# Create database automatically
+    c.close()
+    conn.close()
 init_db()
 
 # =========================
@@ -96,7 +104,7 @@ def submit():
         request.form.get("extra")
     )
 
-    conn = sqlite3.connect(DATABASE)
+    conn = get_db_connection()
     c = conn.cursor()
 
     c.execute("""
@@ -125,7 +133,7 @@ def submit():
 
         )
 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """, data)
 
     conn.commit()
@@ -244,7 +252,7 @@ def admin():
         """
 
     # Get all responses
-    conn = sqlite3.connect(DATABASE)
+    conn = get_db_connection()
     c = conn.cursor()
 
     c.execute("""
