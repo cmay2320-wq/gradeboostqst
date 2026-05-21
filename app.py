@@ -8,7 +8,7 @@ app = Flask(__name__)
 # SECURITY
 # =========================
 
-app.secret_key = os.environ.get("SECRET_KEY", "super-secret-key")
+app.secret_key = os.environ.get("SECRET_KEY", "Cmay$0761986009")
 
 ADMIN_PASSWORD = os.environ.get(
     "ADMIN_PASSWORD",
