@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, session
-import sqlite3
+
 import os
 import psycopg2
 from psycopg2.extras import RealDictCursor
@@ -17,7 +17,7 @@ ADMIN_PASSWORD = os.environ.get(
     "admin0760"
 )
 
-DATABASE_URL = os.environ.get("postgresql://gradeboostedb_user:sGkdYJUq0jAW8zvnABXy9dqCsPoP9UnE@dpg-d87dn34m0tmc739q5esg-a/gradeboostedb")
+DATABASE_URL = os.environ.get("DATABASE_URL")
 
 # =========================
 # DATABASE SETUP
